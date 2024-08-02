@@ -1,0 +1,16 @@
+{% extends 'admin/adminbase.html' %}
+{% load static %}
+{% block contents %}
+<style>
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
+    }
+</style>
+
+<div class="center">
+    <img src="data:image/png;base64,{{ image_base64 }}" alt="Gender Distribution">
+</div>
+{% endblock %}

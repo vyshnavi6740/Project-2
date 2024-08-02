@@ -1,0 +1,54 @@
+{% extends 'user/userbase.html' %}
+{% load static %}
+{% block contents %}
+
+<style>
+    .transparent-container {
+        background-color: rgba(255, 255, 255, 0.8); 
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%; 
+        margin: 0 auto; 
+        text-align: center;
+    }
+    .input-container {
+        margin-bottom: 10px;
+    }
+    input[type="text"] {
+        padding: 10px;
+        width: 60%; 
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box; 
+    }
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3; 
+    }
+</style>
+<br><br><br><br>
+
+<div class="transparent-container">
+    <div class="input-container">
+        <h1>Random Forest Machine</h1>
+        <form action="{% url 'rfc_prediction' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="text" placeholder="Enter text here">
+            <input type="submit" value="Submit">
+        </form>
+        <h1>Prediction Result</h1>
+        <p>The prediction result is: {{ prediction }}</p>
+    </div>
+</div>
+
+{% endblock %}
